@@ -12,12 +12,12 @@ const users = [
   { id: 3, name: 'shreya jo', email: 'jo.shreya@example.com' },
 ];
 
-// GET /api/users -> Returns JSON list of all users.
+// GET 
 app.get('/api/users', (req, res) => {
   res.json(users);
 });
 
-// POST /api/users -> Adds user data to the users array.
+// POST 
 app.post('/api/users', (req, res) => {
   const newId = users.length > 0 ? users[users.length - 1].id + 1 : 1;
   const newUser = { id: newId, name: req.body.name, email: req.body.email };
@@ -25,7 +25,7 @@ app.post('/api/users', (req, res) => {
   res.json(newUser);
 });
 
-// PUT /api/users/:userId -> Updates a user in the users array.
+// PUT 
 app.put('/api/users/:userId', (req, res) => {
   const userId = parseInt(req.params.userId);
   const userIndex = users.findIndex(user => user.id === userId);
@@ -38,7 +38,7 @@ app.put('/api/users/:userId', (req, res) => {
   }
 });
 
-// DELETE /api/users/:userId - Deletes a user from the users array.
+// DELETE 
 app.delete('/api/users/:userId', (req, res) => {
   const userId = parseInt(req.params.userId);
   const userIndex = users.findIndex(user => user.id === userId);
@@ -50,6 +50,5 @@ app.delete('/api/users/:userId', (req, res) => {
   }
 });
 
-// Start the server.
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server running on port ${port}`));
